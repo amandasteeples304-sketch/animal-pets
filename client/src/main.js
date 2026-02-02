@@ -20,7 +20,7 @@ async function fetchTable() {
 // now we want to display the readableTable on or webpage
 async function myTableDisplay() {
   const readableTableClone = await fetchTable();
-  console.log(readableTableClone); // check it has passed the array correctly
+  //console.log(readableTableClone); // check it has passed the array correctly
   readableTableClone.forEach((message) => {
     const myDiv = document.createElement("div");
     const gameName = document.createElement("p");
