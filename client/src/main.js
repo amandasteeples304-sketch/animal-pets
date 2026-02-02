@@ -1,7 +1,7 @@
 //console.log("hello world");
 
 // link submit audio clip to javascript
-const segaAudio = new Audio("audio/sega-hd.mp3");
+const segaAudio = new Audio("src/audio/sega-hd.mp3");
 
 // get our form
 const form = document.getElementById("form");
