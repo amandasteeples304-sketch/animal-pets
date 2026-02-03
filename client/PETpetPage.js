@@ -3,10 +3,12 @@ console.log("This is the Pet Animal Page");
 // Key: mps = money per second
 // key: stats = attributes of pet
 // Key: items = shop items to buy
+// Key: settings = friend, game settings, reset and load game, sound options
 let state = {
   mps: 1,
   items: [],
   stats: [],
+  settings: [],
 };
 
 const image = document.querySelector("img");
@@ -27,7 +29,9 @@ function game() {
   setInterval(function () {
     saveGame();
     state.mps = state.mps + state.stats;
-  });
+    mpsDisplay.innerText = state.mps;
+    statsDisplay.innerText = state.stats;
+  }, 1000);
 }
 
 function generateShop() {
