@@ -2,20 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="module" src="/src/main.js" defer></script>
-    <link rel="stylesheet" href="/src/style.css" />
-    <title>assignment04</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="PethomePageOleksii.css" />
   </head>
   <body>
-    <!--YOU MUST ALWAYS GIVE YOUR FORMS AN INPUT NAME. VERY IMPORTANT!! -->
-    <form id="form">
-      <input name="game" type="text" placeholder="Enter Game Name" />
-      <input name="review" type="text" placeholder="Leave your review" />
-      <button id="button" type="submit">SUBMIT</button>
+    <h2>Pet Login</h2>
+    <form action="/PETpetPageAmanda" method="POST">
+      <label for="pet">Pet name:</label>
+      <input
+        type="text"
+        id="pet"
+        name="pet"
+        placeholder="Enter pet's name"
+        required
+      />
+      <button type="submit">Login</button>
     </form>
-    <!--create a div to display our database - sent to us from our server-->
-    <div id="databaseDisplay" class="database-display"></div>
+    <hr />
+    <form action="/PETmakePet" method="GET">
+      <button type="submit">Make pet</button>
+    </form>
   </body>
 </html>
