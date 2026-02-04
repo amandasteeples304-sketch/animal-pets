@@ -19,6 +19,16 @@ image.addEventListener("click", function () {
   console.log(state.mps);
 });
 
+function game() {
+  loadGame();
+  setInterval(function () {
+    saveGame();
+    state.mps = state.mps + state.stats;
+    mpsDisplay.innerText = state.mps;
+    statsDisplay.innerText = state.stats;
+  }, 1000);
+}
+
 function generateShop() {
   console.log(items);
   items.forEach(function (item) {
@@ -60,3 +70,23 @@ function purchaseItem(itemParam) {
   state.mps -= itemParam.cost;
   state.stats += itemParam.increase;
 }
+
+function loadGame() {
+  console.log(localStorage.getItem("state"));
+  if (localStorage.getItem("state") === null) {
+    return;
+  }
+  state = JSON.parse(localStorage.getItem("state"));
+}
+game();
+
+function resetGame() {
+  localStorage.clear();
+  state = {
+    stats: 0,
+    mps: 1,
+    items: [],
+  };
+}
+
+resetButton.addEventListener("click", resetGame);
