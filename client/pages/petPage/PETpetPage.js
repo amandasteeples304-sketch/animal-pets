@@ -13,12 +13,8 @@ let state = {
 const image = document.querySelector("img");
 const mpsDisplay = document.getElementById("mps");
 const statsDisplay = document.getElementById("stats");
-
-image.addEventListener("click", function () {
-  state.mps += 1;
-  mpsDisplay.innerText = state.mps;
-  console.log(state.mps);
-});
+const shop = document.getElementById("shop");
+let saveGame = document.getElementById("saveGame");
 
 function game() {
   loadGame();
@@ -30,19 +26,63 @@ function game() {
   }, 1000);
 }
 
-let items = [
-  { itemName: "Bookstore", cost: 10, increase: 2 },
-  { itemName: "Gym Membership", cost: 50, increase: 3 },
-  { itemName: "Brew tea", cost: 100, increase: 5 },
-  { itemName: "Movie tickets", cost: 150, increase: 10 },
+image.addEventListener("click", function () {
+  state.mps += 1;
+  mpsDisplay.innerText = state.mps;
+  console.log(state.mps);
+});
+
+// function loadGame() {
+//   console.log(localStorage.getItem("state"));
+//   if (localStorage.getItem("state") === null) {
+//     return;
+//   }
+//   state = JSON.parse(localStorage.getItem("state"));
+// }
+// game();
+
+// function resetGame() {
+//   localStorage.clear();
+//   state = {
+//     stats: 0,
+//     mps: 1,
+//     items: [],
+//   };
+//   const resetButton = document.createElement("button");
+//   resetButton.classList.add("reset-button");
+//   resetButton.innerText = "Reset Game";
+
+//   resetButton.addEventListener("click", resetGame);
+// }
+
+const item = [
+  { itemName: "Bookstore", itemCost: 10, itemIncrease: 2 },
+  { itemName: "Gym Membership", itemCost: 50, itemIncrease: 3 },
+  { itemName: "Brew tea", itemCost: 100, itemIncrease: 5 },
+  { itemName: "Movie tickets", itemCost: 150, itemIncrease: 10 },
 ];
 
 function generateShop() {
-  items.forEach(function (item) {
-    const shopContainer = document.createElement("div");
-    shopContainer.classList.add("shop-item");
+  item.forEach(function (item) {
+    const itemContainer = document.createElement("div");
+    itemContainer.classList.add("shop-item");
+    const itemName = document.createElement("p");
+    itemName.innerText = item.itemName;
+    const itemCost = document.createElement("p");
+    itemCost.innerText = "Cost: " + item.itemCost;
+    const itemIncrease = document.createElement("p");
+    itemIncrease.innerText = "Increase: " + item.itemIncrease;
+    const buyButton = document.createElement("button");
+    buyButton.classList.add("buy-button");
+    buyButton.innerText = "Buy";
+
+    buyButton.addEventListener("click", function () {
+      purchaseItem(item);
+    });
+    itemContainer.append(itemName, itemCost, itemIncrease, buyButton);
+    shop.append(itemContainer);
   });
-  console.log(items);
+  console.log(item);
 
   const buyButton = document.createElement("button");
   buyButton.classList.add("buy-button");
@@ -71,23 +111,3 @@ function purchaseItem(itemParam) {
   state.mps -= itemParam.cost;
   state.stats += itemParam.increase;
 }
-
-function loadGame() {
-  console.log(localStorage.getItem("state"));
-  if (localStorage.getItem("state") === null) {
-    return;
-  }
-  state = JSON.parse(localStorage.getItem("state"));
-}
-game();
-
-function resetGame() {
-  localStorage.clear();
-  state = {
-    stats: 0,
-    mps: 1,
-    items: [],
-  };
-}
-
-resetButton.addEventListener("click", resetGame);
