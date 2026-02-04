@@ -7,7 +7,8 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: resolve(__dirname, "index.html"),
-                petPage: resolve(__dirname, "pages/petPage/index.html"),
+                // petPage: resolve(__dirname, "pages/petPage/index.html"),
+                petPage: resolve(__dirname, "pages/petPage.html"),
             },
         },
     },
