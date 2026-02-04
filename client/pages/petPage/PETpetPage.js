@@ -7,6 +7,7 @@ let state = {
   mps: 1,
   items: [],
   stats: [],
+  settings: [],
 };
 
 const image = document.querySelector("img");
