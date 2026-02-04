@@ -21,9 +21,14 @@ db.query(
 
 // sets up a new example pet on the db which has a name and password, no money and 1 for each of their stats.
 db.query(
-    `INSERT INTO pet4 (name, password, money, intelligence, strength, tea, kindness) VALUES ('Jim', '1234', 0,1,1,1,1)`
+    `INSERT INTO pet4 (name, password, money, intelligence, strength, tea, kindness,'animal_id) VALUES ('Jim', '1234', 0,1,1,1,1, 'cat')`
 )
 
-db.query(
-    `INSERT INTO pet4 (name, password, money, intelligence, strength, tea, kindness) VALUES ('Jam', '1234', 0,1,1,1,1)`
+const response = db.query(
+    `SELECT * FROM pet4 WHERE animal_id = 'cat'`
 )
+console.log(response)
+
+// db.query(
+//     `INSERT INTO pet4 (name, password, money, intelligence, strength, tea, kindness) VALUES ('Jam', '1234', 0,1,1,1,1)`
+// )
