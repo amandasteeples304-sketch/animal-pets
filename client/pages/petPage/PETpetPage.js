@@ -30,19 +30,19 @@ function game() {
   }, 1000);
 }
 
+let items = [
+  { itemName: "Bookstore", cost: 10, increase: 2 },
+  { itemName: "Gym Membership", cost: 50, increase: 3 },
+  { itemName: "Brew tea", cost: 100, increase: 5 },
+  { itemName: "Movie tickets", cost: 150, increase: 10 },
+];
+
 function generateShop() {
-  console.log(items);
   items.forEach(function (item) {
     const shopContainer = document.createElement("div");
     shopContainer.classList.add("shop-item");
   });
-
-  let items = [
-    { itemName: "Bookstore", cost: 10, increase: 2 },
-    { itemName: "Gym Membership", cost: 50, increase: 3 },
-    { itemName: "Brew tea", cost: 100, increase: 5 },
-    { itemName: "Movie tickets", cost: 150, increase: 10 },
-  ];
+  console.log(items);
 
   const buyButton = document.createElement("button");
   buyButton.classList.add("buy-button");
