@@ -82,3 +82,79 @@ input {
   background-color: #18ca1e;
   transform: translateY(4px);
 }
+
+.thumbnail-container {
+  display: flex;
+  width: 80vw;
+  background-color: purple;
+  padding: 10px;
+  justify-content: flex-start;
+  position: relative;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  margin-block: 50px;
+  align-items: center;
+  bottom: 5vh;
+  height: 17vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* step 1. give the thumbs a new height */
+.thumb {
+  height: 15vh;
+}
+
+#login {
+  display: flex;
+  width: 80vw;
+  background-color: purple;
+  padding: 10px;
+  justify-content: flex-start;
+  position: relative;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  margin-block: 50px;
+  align-items: center;
+  bottom: 5vh;
+  height: 17vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+input {
+  display: flex;
+  width: 80vw;
+  background-color: green;
+  padding: 10px;
+  justify-content: flex-start;
+  position: relative;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  align-items: center;
+}
+
+.thumb {
+  padding: 10px 20px;
+  font-size: 10px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.thumb:hover {
+  background-color: #3e8e41;
+}
+
+.thumb:active {
+  background-color: #0bec13;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

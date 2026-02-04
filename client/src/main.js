@@ -3,9 +3,7 @@ const form = document.getElementById("form");
 const myDatabaseDisplay = document.getElementById("databaseDisplay");
 
 async function fetchTable() {
-  const jsTable = await fetch(
-    "https://assignment04-server.onrender.com/reviews",
-  );
+  const jsTable = await fetch("http://localhost:4242/reviews");
   const readableTable = await jsTable.json();
 
   return readableTable; // this array of data will now be able to be passed into another function below (to display the table array on our website)
@@ -37,16 +35,13 @@ async function handleSubmit(e) {
   const jsFormData = Object.fromEntries(rawFormData);
   const jsonFormData = JSON.stringify(jsFormData);
 
-  const serverPostResp = await fetch(
-    "https://assignment04-server.onrender.com/reviews",
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-      body: jsonFormData,
+  const serverPostResp = await fetch("http://localhost:4242/reviews", {
+    headers: {
+      "Content-Type": "application/json",
     },
-  );
+    method: "POST",
+    body: jsonFormData,
+  });
   // window.location.reload() not sure what this is for ????
   const res = await serverPostResp.json();
   console.log(res); // remember we asked the server, when it receives a get/post request, to send the client back a console.log response displaying the BODY content of the data it just received. res.json({ message: req.body }); So it shows us the actual users inputted text (which we made the body in json format above)
