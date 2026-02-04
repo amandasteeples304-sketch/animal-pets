@@ -3,15 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      type="module"
-      src="/home/meyerhoff/team-project/animal-pets/client/DaveLogin.js"
-      defer
-    ></script>
-    <link rel="stylesheet" href="/src/style.css" />
     <title>Document</title>
+    <link rel="stylesheet" href="PethomePageOleksii.css" />
   </head>
   <body>
-    <div id="thumbnailContainer" class="thumbnail-container"></div>
+    <h2>Pet Login</h2>
+    <form action="/PETpetPageAmanda" method="POST">
+      <label for="pet">Pet name:</label>
+      <input
+        type="text"
+        id="pet"
+        name="pet"
+        placeholder="Enter pet's name"
+        required
+      />
+      <button type="submit">Login</button>
+    </form>
+    <hr />
+    <form action="/PETmakePet" method="GET">
+      <button type="submit">Make pet</button>
+    </form>
+    <a href="pages/petPage.html">go to pet page</a>
   </body>
 </html>
